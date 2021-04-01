@@ -78,7 +78,7 @@ def main():
                 list.sort()
                 end = time.time()
 
-            csv_writer.writerow([i, (end - start)])
+            csv_writer.writerow([i, "{:.20f}".format(end - start)])
 
 
 if __name__ == "__main__":
