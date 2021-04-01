@@ -51,7 +51,10 @@ def swap(list, a, b):
 
 def main():
     if len(sys.argv) != 4:
-        print("Usage: inFile outFile quicksort [true or false]")
+        print("Usage: <inFile> <outFile> <quicksort>")
+        print("  inFile: relative path to input file")
+        print("  outFile: relative path to output file")
+        print("  quicksort [true, false]: true if quicksort should be used or false for built in sort")
         return
 
     inFile = sys.argv[1]
@@ -74,7 +77,6 @@ def main():
                 list.sort()
                 end = time.time()
 
-            print(list)
             csv_writer.writerow([i, (end - start)])
 
 
