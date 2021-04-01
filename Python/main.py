@@ -63,6 +63,7 @@ def main():
 
     with open(outFile, "w") as f:
         csv_writer = csv.writer(f)
+        csv_writer.writerow(["run", "time"])
 
         for i in range(1, ITERATIONS + 1):
             with open(inFile) as f:
