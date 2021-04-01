@@ -74,7 +74,9 @@ public class Main {
                     Arrays.sort(arrayCopy);
                     end = System.nanoTime();
                 }
-                writer.write(i + "," + (end - start) + '\n');
+
+                double time = (end - start) / 1000000000.0;
+                writer.write(i + "," + String.format("%.12f", time) + '\n');
             }
 
             writer.close();
