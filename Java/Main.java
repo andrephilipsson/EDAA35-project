@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 
-public class main {
+public class Main {
     // algorithm quicksort(A, lo, hi) is
     //     if lo < hi then
     //         p := partition(A, lo, hi)
@@ -30,7 +30,7 @@ public class main {
     private static int[] array = new int[800];
     private static final int ITERATIONS = 600;
 
-    public static void Main(String[] args) {
+    public static void main(String[] args) {
         if (args.length != 3) {
             System.out.println("Usage: <inFile> <outFile> <quicksort>");
             System.out.println("  inFile: relative path to input file");
