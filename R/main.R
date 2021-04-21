@@ -2,11 +2,7 @@ source("R/utils.R")
 
 # The CUT_OFF runs we want to start the calculations from.
 # A value of 1 means that we want to use all runs.
-CUT_OFF <- 11
-
-# The NUMBER_OF_RUNS that we want to sort the data every time the program is
-# called.
-NUMBER_OF_RUNS <- 610
+CUT_OFF <- 1
 
 
 get_command_and_filename <- function(language, data, quicksort) {
