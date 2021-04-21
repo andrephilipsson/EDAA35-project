@@ -1,5 +1,8 @@
 source("R/utils.R")
 
+# Ugly place for this, might want to move it
+if(!dir.exists(file.path("results"))) dir.create(file.path("results"))
+
 # The CUT_OFF runs we want to start the calculations from.
 # A value of 1 means that we want to use all runs.
 CUT_OFF <- 1
