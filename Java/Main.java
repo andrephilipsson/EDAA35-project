@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 
-public class Main {
+public class main {
     // algorithm quicksort(A, lo, hi) is
     //     if lo < hi then
     //         p := partition(A, lo, hi)
@@ -76,7 +76,7 @@ public class Main {
                 }
 
                 double time = (end - start) / 1000000000.0;
-                writer.write(i + "," + String.format("%.12f", time) + '\n');
+                writer.write(i + "," + String.format("%.12f", time).replace(',','.') + '\n');
             }
 
             writer.close();
