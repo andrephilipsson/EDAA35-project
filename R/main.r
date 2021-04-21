@@ -4,9 +4,9 @@ plotresult <- function(file , start = 1) {
   data <- data[start : nrow(data),]
   plot(data, type = 'l')
 }
-#system("./a.out input output true")
-#system("python main.py input output true")
-system("java main input output true")
+#system("./a.out ../Indata/data1.txt ../Outdata/output.txt  true")
+#system("python main.py ../Indata/data1.txt ../Outdata/output.txt true")
+#system("java main ../Indata/data1.txt  ../Outdata/output.txt  true")
 plotresult("output.txt") 
 pdf("output.txt") 
 plotresult("output.txt") 
