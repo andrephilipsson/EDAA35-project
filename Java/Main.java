@@ -30,7 +30,7 @@ public class main {
     private static int[] array = new int[800];
     private static final int ITERATIONS = 600;
 
-    public static void main(String[] args) {
+    public static void Main(String[] args) {
         if (args.length != 3) {
             System.out.println("Usage: <inFile> <outFile> <quicksort>");
             System.out.println("  inFile: relative path to input file");
@@ -76,7 +76,7 @@ public class main {
                 }
 
                 double time = (end - start) / 1000000000.0;
-                writer.write(i + "," + String.format("%.12f", time).replace(',','.') + '\n');
+                writer.write(i + "," + String.format("%.12f", time) + '\n');
             }
 
             writer.close();
