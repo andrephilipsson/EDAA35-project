@@ -76,7 +76,8 @@ public class Main {
                 }
 
                 double time = (end - start) / 1000000000.0;
-                writer.write(i + "," + String.format("%.12f", time) + '\n');
+                String timeStr = String.format("%.12f", time).replace(',', '.');
+                writer.write(i + "," + timeStr + '\n');
             }
 
             writer.close();
