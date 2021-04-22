@@ -3,8 +3,8 @@
 #include<string.h>
 #include<time.h>
 
-int ITERATIONS = 600;
-int ARRAY_SIZE = 800;
+#define ITERATIONS  600
+#define ARRAY_SIZE  800
 
 // algorithm quicksort(A, lo, hi) is
 //     if lo < hi then
