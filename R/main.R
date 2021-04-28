@@ -5,7 +5,7 @@ if(!dir.exists(file.path("results"))) dir.create(file.path("results"))
 
 # The CUT_OFF runs we want to start the calculations from.
 # A value of 1 means that we want to use all runs.
-CUT_OFF <- 1
+CUT_OFF <- 51
 
 
 get_command_and_filename <- function(language, data, quicksort) {
