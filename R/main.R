@@ -16,10 +16,10 @@ get_command_and_filename <- function(language, data, quicksort) {
     command <- "java -cp Java Main"
     filename <- paste(filename, "java", sep="")
   } else if (language == "c") {
-    command <- "./C/a.out"
+    command <- "./C/a.exe"
     filename <- paste(filename, "c", sep="")
   } else if (language == "python") {
-    command <- "python3 Python/main.py"
+    command <- "py Python/main.py"
     filename <- paste(filename, "python", sep="")
   } else {
     stop(paste("Not a supported language:", language))
@@ -86,7 +86,7 @@ calculate_mean <- function(language, data, quicksort) {
 
 
 # Where the magic happens
-for (lang in c("java", "c", "python")) {
+for (lang in c("python")) {
   for (data in 1:3) {
     for (quick in c(TRUE, FALSE)) {
       create_graph(lang, data, quick)

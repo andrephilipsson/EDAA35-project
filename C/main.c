@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include<time.h>
-
+#include<windows.h>
 #define ITERATIONS  600
 #define ARRAY_SIZE  800
 
@@ -30,6 +30,27 @@ void swap(int *a, int *b);
 
 int intComparator(const void *a, const void *b);
 
+double PCFreq = 0.0;
+LONGLONG CounterStart = 0;
+
+void StartCounter()
+{
+    LARGE_INTEGER li;
+    if (!QueryPerformanceFrequency(&li))
+    printf("QueryPerformanceFrequency failed!\n");
+
+    PCFreq = (double)(li.QuadPart);
+
+    QueryPerformanceCounter(&li);
+    CounterStart = li.QuadPart;
+}
+
+double GetCounter()
+{
+    LARGE_INTEGER li;
+    QueryPerformanceCounter(&li);
+    return (double)((li.QuadPart - CounterStart) / PCFreq);
+}
 
 int main(int argc, char *argv[])
 {
@@ -55,12 +76,12 @@ int main(int argc, char *argv[])
     i++;
   }
 
-  clock_t start, end;
+  double start, end;
   int arrayCopy[ARRAY_SIZE];
   FILE *fp = fopen(outFile, "w");
 
   fprintf(fp, "run,time\n");
-
+  StartCounter();
   for (int i = 1; i < ITERATIONS + 1; i++) {
     for (int j = 0; j < ARRAY_SIZE; j++) {
       arrayCopy[j] = array[j];
@@ -69,21 +90,18 @@ int main(int argc, char *argv[])
     int size = sizeof arrayCopy / sizeof *arrayCopy;
 
     if (strcmp(quick, "true") == 0) {
-      start = clock();
+      start = GetCounter();
       quicksort(arrayCopy, 0, size);
-      end = clock();
+      end = GetCounter();
     } else {
-      start = clock();
+      start = GetCounter();
       qsort(arrayCopy, size, sizeof(int), intComparator);
-      end = clock();
+      end = GetCounter();
     }
-
-    double time = ((double) (end - start) / CLOCKS_PER_SEC);
-
+    double time = (end - start);
     fprintf(fp, "%d,%f\n", i, time);
   }
   fclose(fp);
-
   return 0;
 }
 

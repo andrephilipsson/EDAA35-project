@@ -1,6 +1,7 @@
 import csv
 import sys
 import time
+from datetime import datetime
 
 """
 algorithm quicksort(A, lo, hi) is
@@ -21,7 +22,6 @@ algorithm partition(A, lo, hi) is
 """
 
 ITERATIONS = 600
-
 
 def quicksort(list, first, last):
     if first < last:
@@ -70,15 +70,15 @@ def main():
                 list = [int(line) for line in f.readlines()]
 
             if (quick == "true"):
-                start = time.time()
+                dtstart = datetime.now()
                 quicksort(list, 0, len(list) - 1)
-                end = time.time()
+                dtend = datetime.now()
             else:
-                start = time.time()
+                dtstart = datetime.now()
                 list.sort()
-                end = time.time()
+                dtend = datetime.now()
 
-            csv_writer.writerow([i, "{:.20f}".format(end - start)])
+            csv_writer.writerow([i, "{:.20f}".format((dtend - dtstart).total_seconds())])
 
 
 if __name__ == "__main__":
