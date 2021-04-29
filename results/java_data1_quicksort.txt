@@ -1,5 +1,5 @@
 [1] "Mean 100 runs:"
-[1] 23284537
+[1] 1.727046e-05
 [1] "Confidence interval 100 runs (95%):"
-   lower    upper 
-23100912 23468161 
+       lower        upper 
+1.707275e-05 1.746816e-05 
